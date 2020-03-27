@@ -84,7 +84,7 @@ il database di riferimento ...)
 Aprire il broswer all'indirizzo  `http://localhost:4200/`
 
 
-![home](.vscode/home.png)
+![home](/.vscode/home.PNG)
 
 
 
