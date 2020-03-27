@@ -157,7 +157,6 @@ class EmailService implements ApplicationService
         if (App::environment(['local','preprod'])) {
             Mail::to(Auth::user())->send($email);
         } else {            
-            //['unicontract@uniurb.it','amministrazione.reclutamento.pdoc@uniurb.it']
             Mail::to(config('unidem.cmu_email'))
                 ->bcc(config('unidem.administrator_email'))->send($email);
         }        

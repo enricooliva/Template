@@ -4,7 +4,7 @@ import { RouterModule, Routes, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthGuard } from '../core/auth.guard';
 import { AuthService } from 'src/app/core';
 
-// UNICONTRACT APP COMPONENTS
+// TEMPLATE APP COMPONENTS
 
 import { BlankComponent } from '../shared/layouts/blank/blank.component';
 import { FullComponent } from '../shared/layouts/full/full.component';

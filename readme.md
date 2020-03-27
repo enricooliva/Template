@@ -26,5 +26,45 @@ Template per applicazioni web: Laravel (backend) - Angular (frontend) - Shibbole
     - [Dynamic forms in Angular](https://formly.dev/)
 
 
-## Installazione
+## Creazione di una applicazione
+
+1) Fare un fork del repository "template" e rinominarlo nel nuovo progetto denominato "uniform"
+
+2) Eseguire il clone del progetto `git clone https://username@bitbucket.org/enoliva/uniform.git`
+
+3) Rinominare le cartelle sostituendo "template" con il nome del progetto
+
+## Configurazione "template"-backend
+
+1) Entrare nella cartella `cd .\template-backend\`
+2) Creare un file di configurazione .env (copiare, rinominare e modificare il file .env.exmaple inserendo il nome dell'applicazione, 
+il database di riferimento ...)
+3) Eseguire `composer install` per l'istallazione dei package
+4) Eseguire `php artisan migrate:fresh --seed` 
+
+## Configurazione "template"-frontend
+
+1) Entrare nella cartella `cd .\template-frontend\`
+2) Eseguire `npm install`
+   
+## Configurazione "template"-mockipd
+
+1) Entranre nella cartella cd `cd .\template-mock-idp\`
+2) Eseguire  `npm install fake-sso-idp`
+3) Il mock idp è configurato con un utente a cui è associato il ruolo SUPER-ADMIN
+
+## Lancio dell'applicazione
+
+1) Aprire tre terminal
+2) Lancio dei servizi di backend 
+   1) `cd .\template-backen\`
+   2) `php artisan serve --port 80`
+3) Lancio del frontend
+   1) `cd .\uniform-frontend\`
+   2) `ng serve`
+4) Lancio del mock idp
+   1) `cd .\uniform-mock-idp\`
+   2) `node start.js`
+
+Aprire il broswer all'indirizzo
 
