@@ -64,16 +64,22 @@ il database di riferimento ...)
 1) Aprire tre terminal
 
 2) Lancio dei servizi di backend 
-   1) `cd .\template-backen\`
-   2) `php artisan serve --port 80`
-   
+    ```
+    cd .\template-backen\
+    php artisan serve --port 80
+    ```
+
 3) Lancio del frontend
-   1) `cd .\uniform-frontend\`
-   2) `ng serve`
-   
+    ```
+    cd .\uniform-frontend\
+    ng serve
+    ```
+
 4) Lancio del mock idp
-   1) `cd .\uniform-mock-idp\`
-   2) `node start.js`
+   	```
+    cd .\uniform-mock-idp\  
+    node start.js
+    ```
 
 Aprire il broswer all'indirizzo  `http://localhost:4200/`
 
