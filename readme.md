@@ -64,18 +64,21 @@ il database di riferimento ...)
 1) Aprire tre terminal
 
 2) Lancio dei servizi di backend 
+   
     ```
     cd .\template-backen\
     php artisan serve --port 80
     ```
 
 3) Lancio del frontend
+   
     ```
     cd .\uniform-frontend\
     ng serve
     ```
 
 4) Lancio del mock idp
+
    	```
     cd .\uniform-mock-idp\  
     node start.js
