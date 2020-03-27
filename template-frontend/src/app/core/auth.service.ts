@@ -36,7 +36,7 @@ export class AuthService {
     _email: string;
     _dips: string[];
 
-    static TOKEN = 'tokenunicontr'
+    static TOKEN = 'tokenTEMPLATE'
 
     constructor( private http: HttpClient,
                  public jwtHelper: JwtHelperService,

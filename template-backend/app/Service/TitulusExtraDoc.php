@@ -42,7 +42,7 @@ class TitulusExtraDoc
         $dati = (object)$dati;
         $sistema_mittente = $node->addChild('sistema_mittente');
         $sistema_mittente->addChild('id_documento', $dati->id_documento);
-        //<!--ID nel sistema Unicontract-->
+    
         $sistema_mittente->addChild('pers_id',$dati->pers_id);
         $sistema_mittente->addChild('codice_dipartimento_registro',$dati->codice_dipartimento_registro);
         $sistema_mittente->addChild('applicativo',$dati->applicativo);
@@ -66,7 +66,7 @@ class TitulusExtraDoc
         $dati = (object)$dati;
         $persona = $node->addChild('persona');
         $persona->addChild('codice_fiscale',$dati->codice_fiscale);
-        //<!--ID nel sistema Unicontract-->
+       
         $persona->addChild('cognome',$dati->cognome);
         $persona->addChild('nome',$dati->nome);
         $persona->addChild('data_nascita',$dati->data_nascita);

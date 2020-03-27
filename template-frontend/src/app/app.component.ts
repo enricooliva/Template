@@ -13,7 +13,7 @@ import { NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'UniContract-FrontEnd';
+  title = 'Template-FrontEnd';
   errorMessage = '';
 
   constructor(public router: Router, private authService: AuthService, private rolesService: NgxRolesService) {

@@ -34,7 +34,7 @@ class ExceptionOccured extends Mailable
     {
         return $this->view('emails.exception')
         ->subject('['.App::environment().'] Exception Logged!')
-        ->from('exceptions@unicontr.it')
+        ->from('exceptions@template.it')
         ->to(config('unidem.administrator_email'))
         ->with([
             'data' => $this->data,

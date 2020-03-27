@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Esecuzione di Chrome su localhost",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}/unicontract-frontend"
+            "webRoot": "${workspaceFolder}/template-frontend"
         },
         {
             "type": "node",
