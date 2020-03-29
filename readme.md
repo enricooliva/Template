@@ -4,9 +4,10 @@ Template per applicazioni web: Laravel (backend) - Angular (frontend) - Shibbole
 ## Features
 
 - 🔥 Web application 
+- 🔥 Automatic forms generation [Formly](https://github.com/ngx-formly/ngx-formly)
 - ⚡️ Supporto per il SSO con Shibbolet
 - ⚡️ Package per connessione a db Oracle
-- ⚡️ Consumo web service Titulus
+- ⚡️ Web service Titulus
 - ⚡️ Generazione di pdf basato su [wkhtmltopdf](https://github.com/barryvdh/laravel-snappy)
 - ⚡️ Sistema multi utente e multi ruolo
 - ⚡️ Accesso API con jwt tocken 
