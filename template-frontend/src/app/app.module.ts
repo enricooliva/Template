@@ -88,8 +88,6 @@ import { MappingRuoloService } from './services/mappingruolo.service';
 import { NgbStringAdapter } from './NgbStringAdapter';
 import { NgbDateCustomParserFormatter } from './NgbDateCustomParserFormatter';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
-import { SommarioComponent } from './components/documentazione/sommario/sommario.component';
-import { ProceduraComponent } from './components/documentazione/procedura/procedura.component';
 import { LinkEsterniComponent } from './components/link-esterni/link-esterni.component';
 import { InputConfirmationDialogComponent } from './shared/input-confirmation-dialog/input-confirmation-dialog.component';
 import { MappingUfficioTitulus } from './components/mapping/mappingufficio.component';
@@ -153,8 +151,6 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     StruttureInterneTitulus,
     DocumentiTitulus,
    
-    SommarioComponent,
-    ProceduraComponent,
     LinkEsterniComponent,  
     MappingUfficiTitulus,
     MappingUfficioTitulus,
@@ -190,8 +186,8 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: environment.whitelistedDomains, // ['localhost:4200', 'pcoliva.uniurb.it','unidemdev.uniurb.it'],
-        blacklistedRoutes: environment.blacklistedRoutes, // ['localhost:4200/auth/']
+        whitelistedDomains: environment.whitelistedDomains, 
+        blacklistedRoutes: environment.blacklistedRoutes, 
       }
     }),
     TranslateModule.forRoot({

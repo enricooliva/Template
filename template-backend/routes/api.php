@@ -29,14 +29,6 @@ Route::get('/loginSaml', function(){
     
     if(\Auth::guest())
     {       
-        // login($returnTo = null, array $parameters = array(), $forceAuthn = false, $isPassive = false, $stay = false, $setNameIdPolicy = true)
-        // return  \Saml2::login('http://localhost:4200/',array(),false,false,true);  
-        /*
-        if (\App::environment('local')) {
-            return  \Saml2::login('http://localhost:4200/home');            
-        }
-        return  \Saml2::login('https://unidemdev.uniurb.it/unidem/uniconv/uniconvclient/home');
-        */
         if (\App::environment('local')) {
             if (\Request::ip() == "192.168.5.135" || \Request::ip() == "192.168.5.137" || \Request::ip() == "127.0.0.1" ) {
                 return  \Saml2::login(config('unidem.client_url').'home');            
@@ -44,7 +36,7 @@ Route::get('/loginSaml', function(){
                 return  abort(404);
             }
         }
-        // return  \Saml2::login('https://unidemdev.uniurb.it/unidem/uniconv/uniconvclient/home');
+    
         return  \Saml2::login(config('unidem.client_url').'home');                             
         
     }

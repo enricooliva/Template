@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   API_URL: '',
   baseHref: '',
-  whitelistedDomains: ['unidem-preprod.uniurb.it'],
+  whitelistedDomains: [],
   blacklistedRoutes: [],
   documentation: '',
 };

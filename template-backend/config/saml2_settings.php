@@ -111,7 +111,6 @@ return $settings = array(
     // Identity Provider Data that we want connect with our SP
     'idp' => array(
         // Identifier of the IdP entity  (must be a URI)
-        //https://idptest.uniurb.it/idp/shibboleth
         'entityId' => env('SAML2_IDP_ENTITYID', $idp_host.'idp' ), //. 'idp/shibboleth'
         // SSO endpoint info of the IdP. (Authentication Request protocol)
         'singleSignOnService' => array(
@@ -124,7 +123,6 @@ return $settings = array(
         'singleLogoutService' => array(
             // URL Location of the IdP where the SP will send the SLO Request,
             // using HTTP-Redirect binding.
-            //https://ds90p01.bib.uniurb.it/Shibboleth.sso/Logout?return=https://idp.uniurb.it/idp/profile/Logout
             'url' => $idp_host //. 'idp/profile/Logout',
         ),
         // Public x509 certificate of the IdP

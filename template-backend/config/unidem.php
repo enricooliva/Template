@@ -21,9 +21,9 @@ return [
      * Quickadmin settings
      */
     // Default route
-    'route'              => 'https://unidemdev.uniurb.it/unidem/uniconv/',  
+    'route'              => '',  
     
-    'client_url' => env('CLIENT_URL', 'https://unidemdev.uniurb.it/unidem/uniconv/uniconvclient'),   
+    'client_url' => env('CLIENT_URL', ''),   
 
     // Default role to access users
     //'defaultRole'        => ''

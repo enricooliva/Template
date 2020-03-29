@@ -286,7 +286,7 @@ class TitulusTest extends TestCase
 
     // ./vendor/bin/phpunit  --testsuite Unit --filter setwsuser
     public function testSetWSuser(){
-        $user = User::where('email','enrico.oliva@uniurb.it')->first();
+        $user = User::where('email',config('unidem.administrator_email'))->first();
         $user->v_ie_ru_personale_id_ab = 39842;
         $this->actingAs($user);
 
@@ -309,7 +309,7 @@ class TitulusTest extends TestCase
     
     // ./vendor/bin/phpunit  --testsuite Unit --filter testWorkflowEmail
     public function testDocumentController(){
-        $user = User::where('email','enrico.oliva@uniurb.it')->first();
+        $user = User::where('email',config('unidem.administrator_email'))->first();
         $user->v_ie_ru_personale_id_ab = 39842;
         $this->actingAs($user);
 
