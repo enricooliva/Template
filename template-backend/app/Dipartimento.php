@@ -53,16 +53,8 @@ class Dipartimento extends Model
     }
 
     public function direttoreDipartimento()
-    {
-        //return $this->incarichi()->where('V_IE_RU_INC_FUNZIONI.funzione','DFUN08')->get();        
+    {     
         return $this->organico()->valido()->respArea();        
     }
-
-    // 4499	4499	1	15230	    00448830414	Dipartimento di Giurisprudenza
-    // 4504	4504	8	15232	    00448830414	Dipartimento di Economia, Società, Politica (DESP)
-    // 26124	26124	22	19604	00448830414	DISCUI
-    // 27605	27605	23	19602	00448830414	Dipartimento di Scienze Biomolecolari (DISB)
-    // 26080	26080	20	19603	00448830414	Dipartimento di Scienze Pure e Applicate (DiSPeA)
-    // 26121	26121	21	19605	00448830414	Dipartimento di Studi Umanistici (DISTUM) 
 
 }

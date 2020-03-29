@@ -17,17 +17,6 @@ class Personale extends Model
     public $table = 'V_IE_RU_PERSONALE';
     public $primaryKey = 'ID_AB';
 
-     // Allow for camelCased attribute access
-    //  public function getAttribute($key)
-    //  {
-    //      return parent::getAttribute(snake_case($key));
-    //  }
- 
-    //  public function setAttribute($key, $value)
-    //  {
-    //      return parent::setAttribute(snake_case($key), $value);
-    //  }
-
     public $selectcolumns = array('nome','cognome', 'matricola', 'aff_org', 'email','cd_ruolo'. 'id_ab','cod_fis');
 
     public static function boot()
@@ -37,11 +26,6 @@ class Personale extends Model
             $builder->select(['nome','cognome', 'matricola', 'aff_org', 'email','cd_ruolo', 'V_IE_RU_PERSONALE.id_ab as id_ab','cod_fis']);
         });
     }
-
-    // public function scopeFetch($query, $columns = array('nome','cognome', 'matricola', 'aff_org', 'email','cd_ruolo'))
-    // {
-    //     return $query->get($columns);
-    // }
 
     public function ruolo()
     {

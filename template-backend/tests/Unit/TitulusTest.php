@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\V1\PersonaInternaController;
 use App\Http\Controllers\Api\V1\DocumentoController;
 use Auth;
 use App\User;
+
 class TitulusTest extends TestCase
 {
 
@@ -64,85 +65,8 @@ class TitulusTest extends TestCase
         $document = $obj->Document;
         $this->assertNotNull($obj->doc);
         $doc = $document->doc;
-
-        // $this->assertNotNull($doc['num_prot']);
-       
-        // foreach ($doc->files->children('xw',true) as $file) {    
-        //     $this->assertNotNull((string) $file->attributes()->name);     
-        //     // downloading file
-        //     $fileId = (string) $file->attributes()->name;            
-        //     $attachmentBean =  $sc->getAttachment($fileId);     
-        //     Storage::put('TitulusTest.pdf', $attachmentBean->content); 
-        // }
         
     }
-
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testTitulusUrl
-    public function testTitulusUrl(){
-        $params = array(
-            'verbo' => 'attach',
-            'db'=> 'xdocwaydoc',
-            'id' =>  'lCSypEWbk/J8IwtiXvkR4Q==_000174511-FS_FILES-b86ee703-5545-410e-b2c9-682262de7051[129].pdf',
-            'stampigliatura' => true,
-        );
-        $queryString = http_build_query($params);
-        $url = URL::to('https://titulus-uniurb.pp.cineca.it/xway/application/xdocway/engine/xdocway.jsp'. '?' . $queryString);
-        $this->assertNotNull($url);
-        var_dump($url);
-        $contents = file_get_contents($url);
-        var_dump($contents);
-    }
-
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testSaveDocumentTitulus
-    //Ripristinare SoapFault: java.lang.Exception: Operazione non consentita, mancata autorizzazione!
-
-    //SoapFault: org.dom4j.DocumentException: Validation error on line 2: cvc-complex-type.4: Attribute 'nome_persona'
-    // must appear on element 'rif_interno'. Nested exception: Validation error on line 2: cvc-complex-type.4: Attribute 
-    //'nome_persona' must appear on element 'rif_interno'.
-
-    // public function testSaveDocumentTitulus()
-    // {
-    //     $sc = new SoapControllerTitulus(new SoapWrapper);       
-                          
-    //     $doc = new Documento;
-    //     $doc->rootElementAttributes->tipo = 'arrivo';
-    //     $doc->oggetto = 'test documento in arrivo test documento in arrivo';
-    //     $doc->addClassifCod('03/13');
-    //     $doc->allegato = '0 - Nessun allegato';                              
-        
-    //     $doc->addRPA(TitulusTest::UFF,TitulusTest::NOME_RPA);     
-
-    //     $nome = new Element('nome');
-    //     $nome->_value ="UniConv test";
-    //     //$nome->rootElementAttributes->cod = "SE000095";
-
-    //     $rif_esterno = new Rif('rif_esterno');
-    //     $rif_esterno->nome = $nome;        
-
-    //     $doc->rif_esterni = array($rif_esterno);
-    //     $newDoc = $doc->toXml();
-    //     //var_dump($newDoc);        
-
-    //     $attachment1 = new AttachmentBean();
-    //     $attachment1->setFileName('test.pdf');
-    //     $attachment1->setDescription("Manuale");
-    //     $attachment1->setMimeType("application/pdf");
-    //     $attachment1->setContent(Storage::get('test.pdf'));      
-
-    //     $sd = new SaveDocument($newDoc, array($attachment1), new SaveParams(true,false));  
-    //     //var_dump($sd);    
-    //     $response = $sc->saveDocument($sd);
-
-    //     $obj = simplexml_load_string($response);
-    //     $this->assertNotNull($obj->Document);
-    
-    //     //visualizza il contenuto dell'oggetto
-    //     //var_dump($response);
-      
-    //     $this->assertNotNull($response);
-
-    // }
-
 
     // ./vendor/bin/phpunit  --testsuite Unit --filter testSearchTitulus
     public function testSearchTitulus()
@@ -209,34 +133,7 @@ class TitulusTest extends TestCase
         $this->assertEquals(str_replace(array("\n", "\r"), '', $result),'<?xml version="1.0" encoding="UTF-8"?><doc tipo="arrivo"><allegato>1 - test1</allegato><allegato>2 - test2</allegato><voce_indice>UNIPEO - Domanda di progressione economica orizzontale</voce_indice><rif_esterni><rif_esterno><nome cod="SE000095" nominativo="Mario Rossi"/></rif_esterno><rif_esterno><nome>pippo</nome></rif_esterno></rif_esterni></doc>');
     }
     
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testSearchNRecordTitulus
-    // public function testSearchNRecordTitulus()
-    // {
-    //     $sc = new SoapControllerTitulus(new SoapWrapper);
-    //     $response = $sc->search('([/doc/@nrecord]="000718383-UNURTST-1d4d17dc-dd10-4c76-bd0e-ed71e904227c")',null,null,null);
-    //     var_dump($response);
-    //     $this->assertNotNull($response);
-    //     //SoapFault: java.lang.Exception: Utente non autorizzato a visualizzare il file!
-    // }
-
-      // ./vendor/bin/phpunit  --testsuite Unit --filter testFileByIdTitulus
-    //public function testFileByIdTitulus()
-    // {
-    //     $sc = new SoapControllerTitulus(new SoapWrapper);        
-    //     $attachmentBean =  $sc->getAttachment("JC0YjgRBvg1qhbrgpBe6Cw==_000174916-FS_FILES-c52954dc-f556-494c-96cc-646bbf2d6e94[1].pdf");     
-    //     Storage::put('TitulusTest1.pdf', $attachmentBean->content);
-    //     $this->assertNotNull($attachmentBean);
-    // }   
-      
-//  <fascicolo anno="2011">
-//     <oggetto>fascicolo di prova creato mediante ws</oggetto>
-//     <classif cod="XX"/>
-//     <rif_interni>
-//         <rif diritto="RPA" nome_persona="VV" nome_uff="ZZ"/>
-//     </rif_interni>
-//     <voce_indice xml:space="preserve">Accordi bilaterali interuniversitari</voce_indice>
-//  </fascicolo>
-
+ 
 // ./vendor/bin/phpunit  --testsuite Unit --filter testNewFascicolo
     public function testNewFascicolo()
     {
@@ -260,56 +157,8 @@ class TitulusTest extends TestCase
         $this->assertNotNull($obj->Document->fascicolo['nrecord']);
         $this->assertNotNull($obj->Document->fascicolo['numero']);
         var_dump($obj->Document->fascicolo['numero']);
-        
-//     <Response xmlns:xw="http://www.kion.it/ns/xw" canSee="true" canEdit="true" canAddRPA="true">
-//     <url>http://localhost:8080/xway/application/xdocway/engine/xdocway.jsp?verbo=queryplain&amp;query=%5B//@physdoc%5D%3D718437&amp;wfActive=false&amp;codammaoo=UNURTST</url>
-//     <Document physdoc="718437">
-//       <fascicolo anno="2019" cod_amm_aoo="UNURTST" nrecord="000718437-UNURTST-ff0b170d-6254-42e6-ac6c-a4e0e860597f" numero="2019-UNURTST-07/01.00002" scarto="10" stato="aperto" physdoc="718437">
-//         <oggetto xml:space="preserve">fascicolo di prova creato mediante ws</oggetto>
-//         <classif cod="07/01" xml:space="preserve">07/01 - Concorsi e selezioni</classif>
-//         <rif_interni>
-//           <rif cod_persona="PI000203" cod_uff="SI000103" diritto="RPA" nome_persona="Righi Riccardo" nome_uff="Area di test dei WS"/>
-//         </rif_interni>
-//         <voce_indice xml:space="preserve">UNIPEO - Domanda di progressione economica orizzontale</voce_indice>
-//         <storia>
-//           <creazione cod_oper="PI000202" cod_uff_oper="SI000103" data="20190307" oper="Utente WS Test" ora="13:55:38" uff_oper="Area di test dei WS" versioneTitulus="04.04.04.01"/>
-//           <responsabilita cod_operatore="PI000202" cod_persona="PI000203" cod_uff="SI000103" data="20190307" nome_persona="Righi Riccardo" nome_uff="Area di test dei WS" operatore="Utente WS Test (Area di test dei WS)" ora="13:55:38"/>
-//         </storia>
-//       </fascicolo>
-//     </Document>
-//   </Response>
 
     }
-
-    //ricerca tramite acl delle persone tramite alias 
-
-
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testSearchTitulusAcl    
-    public function testSearchTitulusAcl()
-    {
-        //[persint_nomcogn]=*Ri* contiene
-        //orderby //@physdoc desc
-
-        $sc = new SoapControllerTitulusAcl(new SoapWrapper);        
-        $respons = $sc->search('[persint_nomcogn]=Righi',null,null,null);
-        $this->assertNotNull($respons);
-        $obj = simplexml_load_string($respons);
-                
-        $persone = new Collection([]);
-        foreach ($obj->children() as $persona){           
-            $attrArray = array();
-            foreach($persona->attributes() as $key=>$val){
-                $attrArray[(string)$key] = (string)$val;
-            }
-            $persone->push(new PersonaInterna($attrArray));
-        }
-
-        var_dump($persone->toJson());
-        $this->assertEquals(
-            $persone->toJson(),
-            '[{"matricola":"PI000203","nome":"Riccardo","cognome":"Righi","cod_amm":"UNUR","cod_aoo":"TST","cod_uff":"SI000103","descrizione":"Riccardo Righi"}]');
-    }
-
     
     // ./vendor/bin/phpunit  --testsuite Unit --filter testSearchDocumentiTitulus
     public function testSearchDocumentiTitulus()
@@ -320,18 +169,13 @@ class TitulusTest extends TestCase
         $this->assertNotNull($response);
         $sessionId = implode(';', $sc->getSessionId());  
 
-        //MimeHeaders session = response.getMimeHeaders();     
-        //String []cookies = session.getHeader("Set-Cookie");             
-        //request.getMimeHeaders().addHeader("Cookie", cookies[0]);
-        //HTTP/1.1 200 OK\r\nDate: Fri, 08 Mar 2019 14:40:06 GMT\r\nServer: Apache/2.4.25 (Debian)\r\nSet-Cookie: JSESSIONID=FA875B9A083C69B41D037D3E6C236B61.uniurb_preprod; Path=/titulus_ws; Secure; HttpOnly\r\nContent-Type: text/xml;charset=utf-8\r\nVary: Accept-Encoding\r\nTransfer-Encoding: chunked\r\nSet-Cookie: 2d6e47cfa50481da2ed1301e411f376a=5966e8b1a6957bc607e4887bc0045682; path=/; HttpOnly; Secure\r\n"
-
         $sc = new SoapControllerTitulus(new SoapWrapper);
 
         $response = $sc->nextTitlePage($sessionId);
         var_dump($response);
     }   
 
-        // ./vendor/bin/phpunit  --testsuite Unit --filter testTitulusQuery
+    // ./vendor/bin/phpunit  --testsuite Unit --filter testTitulusQuery
     public function testTitulusQuery(){        
 
         $request = new \Illuminate\Http\Request();
@@ -425,70 +269,6 @@ class TitulusTest extends TestCase
 
      }
 
-     // ./vendor/bin/phpunit  --testsuite Unit --filter testXMLAddInFascicolo
-     public function testXMLAddInFascicolo(){
-        //aggiungi al fascicolo ...         
-        $xmlInFolder = new Fascicolo();
-        $xmlInFolder->rootElementAttributes->nrecord ='878-UNIURB';
-        $xmlInFolder->addDoc('024-UNIURB');
-
-        //var_dump($xmlInFolder->toXml());   
-        $this->assertEquals(str_replace(array("\n", "\r"), '', $xmlInFolder->toXml()),'<?xml version="1.0" encoding="UTF-8"?><fascicolo nrecord="878-UNIURB"><doc nrecord="024-UNIURB"/></fascicolo>');
-     }
-     
-
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testSendEmailTitulus
-    public function protocolloDocumentoPartenza($sc)
-    {                   
-        $doc = new Documento;
-        $doc->rootElementAttributes->tipo = 'partenza';
-        $doc->oggetto = 'Proviamo a inviare un documento via email';
-
-        $doc->addClassifCod('03/13');
-        $doc->allegato = '0 - Nessun allegato';                                        
-      
-        //$doc->addRPA("Area di test dei WS","Righi Riccardo","SI000103");
-        $doc->addRPA(TitulusTest::UFF,TitulusTest::NOME_RPA);      
-        //$doc->addCDS('Dipartimento di Scienze Biomolecolari','Mancini Mara');            
-
-        $rif_esterno = new Rif('rif_esterno');          
-        $nome = new Element('nome');
-        $nome->_value ="Ditta di test UniConv";                  
-        $rif_esterno->nome = $nome;                     
-        $rif_esterno->addIndirizzo('via Saffi, 2 - Urbino', 'enrico.oliva@uniurb.it', 'enrico.oliva@uniurb.it');        
-        $rif_esterno->addReferente('Enrico Oliva');        
-        
-        $doc->rif_esterni = array($rif_esterno);
-
-        $newDoc = $doc->toXml();
-        var_dump($newDoc);
-
-        $attachment1 = new AttachmentBean();
-        $attachment1->setFileName('test.pdf');
-        $attachment1->setDescription("Manuale");
-        $attachment1->setMimeType("application/pdf");
-        $attachment1->setContent(Storage::get('test.pdf'));  
-
-        $sd = new SaveDocument($newDoc, array( $attachment1 ), new SaveParams(false,false));            
-        //var_dump($sd);    
-        $response = $sc->saveDocument($sd);
-        return $response;
-    } 
-
-
-    // ./vendor/bin/phpunit  --testsuite Unit --filter testgetDocumentURL
-    public function testgetDocumentURL(){
-        $sc = new SoapControllerTitulus(new SoapWrapper);     
-        $resp = $sc->getDocumentURL('2019-UNURCLE-0008773');        
-        $this->assertNotNull($resp);
-
-        var_dump($resp);  
-        $parse = parse_url($resp);        
-        $url = config('titulus.url').$parse['path'].'?'.$parse['query'];
-        $this->assertNotNull($url);
-        $this->assertEquals($url,"https://titulus-uniurb.pp.cineca.it/xway/application/xdocway/engine/xdocway.jsp?verbo=queryplain&query=%5Bdocnumprot%5D%3D2019-UNURCLE-0008773&wfActive=false"); 
-    }
-
     // ./vendor/bin/phpunit  --testsuite Unit --filter testPersStrutturaInterna
     public function testPersStrutturaInterna(){
         $ctr = new StrutturaInternaController();        
@@ -564,14 +344,9 @@ class TitulusTest extends TestCase
         $this->assertEquals((string) $obj['result'],'error');
 
     }
+
     //./vendor/bin/phpunit  --testsuite Unit --filter testLookupAcl
     public function testLookupAcl(){
-//    <Response>
-//   <struttura_interna cod_responsabile="003073" cod_uff="Uf1_51" cod_amm_aoo="UNURCLE">
-//     <nome>Ufficio Protocollo e Archivio</nome>
-//     <persona_interna matricola="PI000204" cod_uff="Uf1_51" nome="Marco" cognome="Cappellacci" cod_amm_aoo="UNURCLE"/>
-//   </struttura_interna>
-// </Response>
         $sc = new SoapControllerTitulusAcl(new SoapWrapper); 
 
         $result = $sc->lookup('Servizio Sistema Informatico di Ateneo',null);

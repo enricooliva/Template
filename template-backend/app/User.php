@@ -67,25 +67,11 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {        
-        $dips = [];
-        if (!$this->hasPermissionTo('search all contratti')){         
-            $uo = $this->unitaorganizzativa();
-            if ($uo){
-                if ($uo->isPlesso()){
-                    $dips  = $uo->dipartimenti();
-                }else if ($uo->isDipartimento()){
-                    $dips = [$uo->uo];
-                }
-            }
-        }else{
-            $dips = UnitaOrganizzativa::allDipartimenti();
-        }
 
         return [
             'id'              => $this->id,
             'name'            => $this->name,
             'email'           => $this->email,
-            'dips'            => $dips,  
             'roles'           => $this->roles()->pluck('name')->map(function ($value) {
                                     return Str::upper($value);
                                 }),
@@ -96,7 +82,7 @@ class User extends Authenticatable implements JWTSubject
         if (App::environment('local')) {
             return config('unidem.client_url'); //'http://localhost:4200';
         }
-        return config('unidem.client_url'); //'https://unidemdev.uniurb.it/unidem/uniconv/uniconvclient';        
+        return config('unidem.client_url');      
     }
     
 
